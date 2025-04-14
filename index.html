@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tron Light Bike Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="score-display" id="score-display-2player" style="display: none;">
+        <div class="score-container">
+            <div class="score-item">
+                <div class="score-color" style="background-color: #0ff;"></div>
+                <span class="score-name">Player 1</span>
+                <span class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <div class="score-color" style="background-color: #f0f;"></div>
+                <span class="score-name">Player 2</span>
+                <span class="score-value">0</span>
+            </div>
+        </div>
+    </div>
+    <div class="score-display" id="score-display-ai" style="display: none;">
+        <div class="score-container">
+            <div class="score-item">
+                <div class="score-color" style="background-color: #0ff;"></div>
+                <span class="score-name">Player 1</span>
+                <span class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <div class="score-color" style="background-color: #f0f;"></div>
+                <span class="score-name">AI 1</span>
+                <span class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <div class="score-color" style="background-color: #f00;"></div>
+                <span class="score-name">AI 2</span>
+                <span class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <div class="score-color" style="background-color: #0f0;"></div>
+                <span class="score-name">AI 3</span>
+                <span class="score-value">0</span>
+            </div>
+        </div>
+    </div>
+    <div class="game-container">
+        <div class="menu" id="menu">
+            <h1>TRON LIGHT BIKES</h1>
+            <div class="game-modes" id="game-modes">
+                <button id="two-player-mode">2 PLAYERS (LOCAL)</button>
+                <button id="single-player-mode">PLAY WITH AI</button>
+            </div>
+            <div id="ai-options" style="display: none;">
+                <h2>AI Difficulty:</h2>
+                <div class="ai-selection">
+                    <label>
+                        <input type="radio" name="ai-type" value="balanced" checked> Balanced
+                    </label>
+                    <label>
+                        <input type="radio" name="ai-type" value="aggressive"> Aggressive
+                    </label>
+                    <label>
+                        <input type="radio" name="ai-type" value="cautious"> Cautious
+                    </label>
+                </div>
+                <div class="win-count-selection">
+                    <h2>Wins Needed:</h2>
+                    <select id="ai-win-count">
+                        <option value="1">1 Win</option>
+                        <option value="3" selected>3 Wins</option>
+                        <option value="5">5 Wins</option>
+                        <option value="7">7 Wins</option>
+                    </select>
+                </div>
+                <button id="start-with-ai">START GAME</button>
+            </div>
+            <div id="two-player-options" style="display: none;">
+                <div class="win-count-selection">
+                    <h2>Wins Needed:</h2>
+                    <select id="two-player-win-count">
+                        <option value="1">1 Win</option>
+                        <option value="3" selected>3 Wins</option>
+                        <option value="5">5 Wins</option>
+                        <option value="7">7 Wins</option>
+                    </select>
+                </div>
+                <button id="start-two-player">START GAME</button>
+            </div>
+            <div class="controls-info">
+                <h2>Controls:</h2>
+                <p>Player 1: Arrow Keys</p>
+                <p>Player 2: WASD Keys (2-player mode only)</p>
+                <p>AI Players: Computer Controlled</p>
+                <p><strong>Sprint:</strong> Spacebar (1.5s duration, 5s cooldown)</p>
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-over" id="game-over">
+            <h2 id="winner-text">Game Over!</h2>
+            <button id="restart-game">PLAY AGAIN</button>
+            <button id="back-to-main" class="small-button">MAIN MENU</button>
+        </div>
+        <div class="countdown" id="countdown" style="display: none;">
+            <span id="countdown-text">3</span>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
